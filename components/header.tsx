@@ -1,32 +1,53 @@
 import { FaDiscord, FaFacebook, FaTwitter } from 'react-icons/fa';
 import Link from 'next/link';
+import { GoBrowser } from 'react-icons/go'
 const Header = () => {
     return (
-        <header className='bg-gray-50'>
+        <header className='bg-gray-200 sticky top-0'>
             <div className='flex flex-col items-center sm:flex-row  sm:justify-between text-center py-3 xl:container xl:mx-auto '>
                 <div className='md:flex-none w-96 order-2 sm:order-1 flex justify-center py-4 sm:py-0' >
                     <input type='text' placeholder='Search...' className='text-input' />
                 </div>
                 <div className='shrink w-80 sm:order-2 ' >
                     <Link href={'/'}>
-                        <a className='text-3xl font-extrabold' >DESIGN</a>
+                        <a className='font-sora text-3xl font-bold' >DESIGN</a>
                     </Link>
                 </div>
                 <div className='w-96 order-3 flex justify-center' >
                     <div className='flex gap-6'>
                         <Link href={'/'}>
+                            <a href='' >
+                                <div data-tooltip-target="tooltip-bottom" className="tooltip mb-2 md:mb-0 text-white bg-blue-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-transparent relative inline-block">
+                                    <FaDiscord data-tooltip-target="tooltip-default" color='#555' className='h-6 w-6 hover:fill-[#5865F2]' />
+
+                                    <span className='tooltiptext' >Discord</span>
+                                </div>
+                            </a>
+
+                        </Link>
+
+                        <Link href={'/'}>
                             <a href=''>
-                                <FaDiscord color='#444' className='hover:fill-[#5865F2]' />
+                                <div className="tooltip mb-2 md:mb-0 text-white bg-[#ffc3d6] rounded-lg text-sm px-5 py-2.5 text-center hover:bg-transparent">
+                                    <FaFacebook color='#555' className='h-6 w-6 hover:fill-[#ff407c]' />
+                                    <span className="tooltiptext">facebook</span>
+                                </div>
                             </a>
                         </Link>
                         <Link href={'/'}>
                             <a href=''>
-                                <FaFacebook color='#444' className='hover:fill-[#c93665]' />
+                                <div className="tooltip mb-2 md:mb-0 text-white bg-[#c5ffe4] rounded-lg text-sm px-5 py-2.5 text-center hover:bg-transparent">
+                                    <FaTwitter color='#555' className='h-6 w-6 hover:fill-[#31ff9f]' />
+                                    <span className="tooltiptext">twitter</span>
+                                </div>
                             </a>
                         </Link>
                         <Link href={'/'}>
                             <a href=''>
-                                <FaTwitter color='#444' className='hover:fill-[#22c579]' />
+                                <div className="tooltip mb-2 md:mb-0 text-white bg-[#dcc3ff] rounded-lg text-sm px-5 py-2.5 text-center hover:bg-transparent">
+                                    <GoBrowser color='#555' className='h-6 w-6 hover:fill-[#9933fe]' />
+                                    <span className="tooltiptext">portfolio <br /> website</span>
+                                </div>
                             </a>
                         </Link>
                     </div>
