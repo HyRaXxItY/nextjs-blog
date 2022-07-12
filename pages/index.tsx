@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
-import SectionOne from '../components/section-1'
+import Trending from '../components/Trending'
 import Structure from '../layout/structure'
 
 const Home: NextPage = () => {
   return (
     <Structure>
-      <SectionOne />
+      <Trending />
     </Structure>
   )
 }

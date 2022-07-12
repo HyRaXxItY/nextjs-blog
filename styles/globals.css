@@ -5,20 +5,23 @@
 @tailwind components;
 @tailwind utilities;
 
-
-* > *{
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    padding: none;
-    margin: none;
+@layer base{
+    * > *{
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        padding: none;
+        margin: none;
+        box-sizing: border-box
+    }
+    a{
+        text-decoration: none;
+    }
+    /* * {
+        box-sizing: border-box;        
+    } */
 }
 
-a{
-    text-decoration: none;
-}
 
-* {
-    box-sizing: border-box;
-}
+
 
 
 

@@ -1,23 +1,25 @@
 import { FaDiscord, FaFacebook, FaTwitter } from 'react-icons/fa';
 import Link from 'next/link';
 import { GoBrowser } from 'react-icons/go'
+import ProgressBar from './progressBar';
+
 const Header = () => {
     return (
-        <header className='bg-gray-200 sticky top-0'>
+        <header className='bg-gray-200 sticky top-0 w-full z-10'>
             <div className='flex flex-col items-center sm:flex-row  sm:justify-between text-center py-3 xl:container xl:mx-auto '>
-                <div className='md:flex-none w-96 order-2 sm:order-1 flex justify-center py-4 sm:py-0' >
+                <div className='md:flex-none order-2 sm:order-1 flex justify-center pb-4 sm:py-0 pl-4' >
                     <input type='text' placeholder='Search...' className='text-input' />
                 </div>
-                <div className='shrink w-80 sm:order-2 ' >
+                <div className='shrink sm:order-2 ' >
                     <Link href={'/'}>
-                        <a className='font-sora text-3xl font-bold' >DESIGN</a>
+                        <a className='font-sora text-2xl md:text-3xl font-bold m-2' >DESIGN</a>
                     </Link>
                 </div>
                 <div className='w-96 order-3 flex justify-center' >
-                    <div className='flex gap-6'>
+                    <div className='flex gap-4 md:gap-6 '>
                         <Link href={'/'}>
                             <a href='' >
-                                <div data-tooltip-target="tooltip-bottom" className="tooltip mb-2 md:mb-0 text-white bg-blue-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-transparent relative inline-block">
+                                <div data-tooltip-target="tooltip-bottom" className="tooltip mb-2 md:mb-0 text-white bg-blue-100 font-medium rounded-lg text-sm  px-5 py-2.5 text-center hover:bg-transparent relative inline-block">
                                     <FaDiscord data-tooltip-target="tooltip-default" color='#555' className='h-6 w-6 hover:fill-[#5865F2]' />
 
                                     <span className='tooltiptext' >Discord</span>
@@ -53,7 +55,9 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            <ProgressBar />
         </header>
+
     )
 }
 
