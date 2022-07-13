@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
-import Category from '../components/Category'
-import Latest from '../components/Latest'
-import Popular from '../components/Popular'
-import Trending from '../components/Trending'
+import Category from '../components/category'
+import Latest from '../components/latest'
+import Popular from '../components/popular'
+import Trending from '../components/trending'
 import Structure from '../layout/structure'
 
 const Home: NextPage = () => {

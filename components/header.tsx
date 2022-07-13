@@ -1,7 +1,7 @@
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa';
 import Link from 'next/link';
 import { GoBrowser } from 'react-icons/go'
-import ProgressBar from './Progress-bar';
+import ProgressBar from './progress-bar';
 const Header = () => {
     return (
         <header className='bg-gray-200 sticky top-0 w-full z-10'>

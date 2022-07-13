@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Author from './child/author';
-
 const Category = () => {
     return (
         <section className="container py-16 mx-auto md:px-20 ">
