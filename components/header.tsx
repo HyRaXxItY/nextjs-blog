@@ -7,12 +7,12 @@ const Header = () => {
     return (
         <header className='bg-gray-200 sticky top-0 w-full z-10'>
             <div className='flex flex-col items-center sm:flex-row  sm:justify-between text-center py-3 xl:container xl:mx-auto '>
-                <div className='md:flex-none order-2 sm:order-1 flex justify-center pb-4 sm:py-0 pl-4' >
+                <div className='md:flex-none w-96 order-2 sm:order-1 flex justify-center pb-4 sm:py-0 pl-4' >
                     <input type='text' placeholder='Search...' className='text-input' />
                 </div>
-                <div className='shrink sm:order-2 ' >
+                <div className='shrink w-80 sm:order-2 ' >
                     <Link href={'/'}>
-                        <a className='font-sora text-2xl md:text-3xl font-bold m-2' >DESIGN</a>
+                        <a className='font-sora text-2xl md:text-3xl font-bold' >DESIGN</a>
                     </Link>
                 </div>
                 <div className='w-96 order-3 flex justify-center' >

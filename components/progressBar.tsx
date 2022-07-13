@@ -7,7 +7,7 @@ function ProgressBar() {
         var el = document.documentElement,
             ScrollTop = el.scrollTop || document.body.scrollTop,
             ScrollHeight = el.scrollHeight || document.body.scrollHeight;
-        var percent = ((ScrollTop / (ScrollHeight - el.clientHeight)) * 100);
+        var percent = (ScrollTop / (ScrollHeight - el.clientHeight)) * 100;
         // store percentage in state
         setWidth(percent);
     };

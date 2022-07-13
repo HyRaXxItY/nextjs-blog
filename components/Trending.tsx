@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Author from './child/author';
+import Author from './child/Author';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import SwiperCore, { Pagination, Autoplay } from "swiper";
@@ -11,11 +11,9 @@ const Trending = () => {
     return (
         <section className='py-8 pt-3' >
             <div className='container mx-auto md:px-8' >
-                <h1 className='font-semibold text-center text-3xl pb-4 text-gray-400' > Trending</h1 >
+                <h1 className='font-semibold text-center text-3xl pb-4 text-gray-400' >Trending Now</h1 >
                 <Swiper
-                    spaceBetween={50}
                     slidesPerView={1}
-                    onSlideChange={() => console.log('slide change')}
                     loop={true}
                     autoplay={{
                         delay: 3000,
@@ -29,7 +27,6 @@ const Trending = () => {
                     <SwiperSlide>{Slide()}</SwiperSlide>
                     <SwiperSlide>{Slide()}</SwiperSlide>
                     <SwiperSlide>{Slide()}</SwiperSlide>
-                    ...
                 </Swiper>
             </div >
         </section >
@@ -40,11 +37,11 @@ export default Trending;
 const Slide = () => {
 
     return (
-        <div className='grid md:grid-cols-2 mx-8 pt-0' >
+        <div className='grid md:grid-cols-2 mx-8 pt-0 items-center' >
             <div className='image justify-center px-4 mx-auto'>
                 <Link href={'/'} >
                     <a>
-                        <Image src={'/images/img1.jpg'} width={400} height={400} />
+                        <Image src={'/images/img1.jpg'} width={400} height={400} className='rounded-xl' />
                     </a>
                 </Link>
             </div>

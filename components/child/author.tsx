@@ -4,7 +4,7 @@ import React from 'react'
 
 const Author = () => {
     return (
-        <div className='author flex pb-5 ' >
+        <div className='author flex pb-5' >
             <Image src={'/images/author/author1.jpg'} width={48} height={48} className='rounded-full'></Image>
             <div className="flex flex-col justify-center px-4">
                 <Link href={'/'}>
