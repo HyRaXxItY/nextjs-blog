@@ -1,8 +1,7 @@
-import { FaDiscord, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa';
 import Link from 'next/link';
 import { GoBrowser } from 'react-icons/go'
-import ProgressBar from './progressBar';
-
+import ProgressBar from './Progress-bar';
 const Header = () => {
     return (
         <header className='bg-gray-200 sticky top-0 w-full z-10'>
@@ -39,8 +38,8 @@ const Header = () => {
                         <Link href={'/'}>
                             <a href=''>
                                 <div className="tooltip mb-2 md:mb-0 text-white bg-[#c5ffe4] rounded-lg text-sm px-5 py-2.5 text-center hover:bg-transparent">
-                                    <FaTwitter color='#555' className='h-6 w-6 hover:fill-[#31ff9f]' />
-                                    <span className="tooltiptext">twitter</span>
+                                    <FaGithub color='#555' className='h-6 w-6 hover:fill-[#31ff9f]' />
+                                    <span className="tooltiptext">Github</span>
                                 </div>
                             </a>
                         </Link>

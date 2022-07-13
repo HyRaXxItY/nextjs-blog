@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Author from './child/Author';
+import Author from './child/author';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import SwiperCore, { Pagination, Autoplay } from "swiper";

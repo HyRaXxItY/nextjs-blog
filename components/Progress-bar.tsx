@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-function ProgressBar() {
+const ProgressBar = () => {
     //Width State
     const [width, setWidth] = useState(0);
     // scroll function

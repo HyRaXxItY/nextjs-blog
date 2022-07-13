@@ -4,11 +4,11 @@ import SwiperCore, { Pagination, Autoplay } from "swiper";
 import "swiper/css/pagination";
 import Link from 'next/link';
 import Image from 'next/image';
-import Author from './child/Author';
+import Author from './child/author';
 
 const Popular = () => {
     return (
-        <section className="container mx-auto md:px-20 py-10">
+        <section className="container mx-auto md:px-20 py-10 pt-3">
             <h1 className='font-semibold text-center text-3xl pb-4 text-gray-400' >Most Popular</h1>
             <Swiper
                 slidesPerView={2}
@@ -39,7 +39,7 @@ const popular = () => {
             <div className="images mx-auto m-2 px-3">
                 <Link href={'/'} >
                     <a>
-                        <Image src={'/images/img1.jpg'} width={500} height={400} className='rounded mx-auto max-h-full justify-center' />
+                        <Image src={'/images/img1.jpg'} width={500} height={500} className='rounded mx-auto max-h-full justify-center' />
                     </a>
                 </Link>
             </div>

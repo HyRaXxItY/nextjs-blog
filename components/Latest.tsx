@@ -1,16 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Author from './child/Author';
+import Author from './child/author';
 
 
 const Latest = () => {
     return (
-        <section className="container mx-auto md:px-20 py-10">
+        <section className="container mx-auto md:px-20 py-10 pt-3">
             <h1 className='font-semibold text-center text-3xl pb-4 text-gray-400' >Latest Post</h1>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-14 ">
-                {Posts()}
-                {Posts()}
-                {Posts()}
                 {Posts()}
                 {Posts()}
                 {Posts()}
@@ -23,8 +20,8 @@ export default Latest;
 
 const Posts = () => {
     return (
-        <div className='item' >
-            <div className="images">
+        <div className='item mx-8 pt-0 items-center' >
+            <div className="images mx-auto">
                 <Link href={'/'} >
                     <a>
                         <Image src={'/images/img1.jpg'} width={300} height={260} className='rounded' />

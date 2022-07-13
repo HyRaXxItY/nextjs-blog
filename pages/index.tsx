@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Category from '../components/Category'
 import Latest from '../components/Latest'
 import Popular from '../components/Popular'
 import Trending from '../components/Trending'
@@ -10,6 +11,10 @@ const Home: NextPage = () => {
       <Trending />
       <Latest />
       <Popular />
+      <Category />
+      <div>
+        hi
+      </div>
     </Structure>
   )
 }
