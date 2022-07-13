@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/trending.js", "pages/api/popular.js", "data/popular-data.js", "data/posts-data.js", "data/trending-data.js"],
   "exclude": ["node_modules"]
 }

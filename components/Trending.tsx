@@ -27,6 +27,7 @@ const Trending = () => {
                     <SwiperSlide>{Slide()}</SwiperSlide>
                     <SwiperSlide>{Slide()}</SwiperSlide>
                     <SwiperSlide>{Slide()}</SwiperSlide>
+                    <SwiperSlide>{Slide()}</SwiperSlide>
                 </Swiper>
             </div >
         </section >

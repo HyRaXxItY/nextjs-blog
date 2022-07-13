@@ -11,13 +11,11 @@ const Category = () => {
                         {posts()}
                         {posts()}
                         {posts()}
-                        {posts()}
                     </div>
                 </div>
                 <div className='item'>
                     <h1 className='font-semibold text-gray-500 text-xl flex-start py-12'>Travel</h1>
                     <div className='flex flex-col gap-5' >
-                        {posts()}
                         {posts()}
                         {posts()}
                         {posts()}

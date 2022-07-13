@@ -12,9 +12,6 @@ const Home: NextPage = () => {
       <Latest />
       <Popular />
       <Category />
-      <div>
-        hi
-      </div>
     </Structure>
   )
 }

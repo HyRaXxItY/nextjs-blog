@@ -24,8 +24,6 @@ const Popular = () => {
             >
                 <SwiperSlide>{popular()}</SwiperSlide>
                 <SwiperSlide>{popular()}</SwiperSlide>
-                <SwiperSlide>{popular()}</SwiperSlide>
-                <SwiperSlide>{popular()}</SwiperSlide>
             </Swiper>
         </section>
     )
