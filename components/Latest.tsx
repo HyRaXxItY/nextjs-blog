@@ -2,11 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Author from './child/author';
 import fetcher from '../utils/fetcher'
+import LazyDisplay from './child/lazy-display';
+import Error from '../components/child/error'
 
 const Latest = () => {
     const { data, isError, isLoading } = fetcher('api/posts')
-    if (isLoading) return <div>Loading ... 🙂</div>
-    if (isError) return <div> Something went wrong 😢</div>
+    if (isLoading) return <LazyDisplay />
+    if (isError) return <Error />
     return (
         <section className="container mx-auto md:px-20 py-10 pt-3">
             <h1 className='font-semibold text-center text-3xl pb-4 text-gray-400' >Latest Post</h1>
@@ -23,7 +25,7 @@ export default Latest;
 
 const Posts = ({ data }) => {
     return (
-        <div className='item mx-6 pt-0 items-center' >
+        <div className='item mx-6 pt-0 items-center mx-auto text-center' >
             <div className="images mx-auto text-center">
                 <Link href={'/'} >
                     <a>
