@@ -25,7 +25,7 @@ export default Latest;
 
 const Posts = ({ data }) => {
     return (
-        <div className='item mx-6 pt-0 items-center mx-auto text-center' >
+        <div className='item mx-6 pt-0 items-center text-center col-start justify-start justify-items-center' >
             <div className="images mx-auto text-center">
                 <Link href={'/'} >
                     <a>
@@ -44,7 +44,7 @@ const Posts = ({ data }) => {
                 <p className='text-sm line-clamp-3 pb-2' >
                     {data.description.slice(0, 175).concat('...')}
                 </p>
-                <Author></Author>
+                <Author ></Author>
             </div>
         </div>
     )

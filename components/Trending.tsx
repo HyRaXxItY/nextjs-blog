@@ -5,8 +5,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import "swiper/css/pagination";
+import fetcher from '../utils/fetcher';
+import LazyDisplay from './child/lazy-display';
+import Error from './child/error';
 
 const Trending = () => {
+    const { data, isError, isLoading } = fetcher('api/trending')
+    if (isLoading) return <LazyDisplay />
+    if (isError) return <Error />
     SwiperCore.use([Autoplay])
     return (
         <section className='py-8 pt-3' >
@@ -23,11 +29,12 @@ const Trending = () => {
                     }}
                     modules={[Pagination]}
                 >
-                    <SwiperSlide>{Slide()}</SwiperSlide>
-                    <SwiperSlide>{Slide()}</SwiperSlide>
-                    <SwiperSlide>{Slide()}</SwiperSlide>
-                    <SwiperSlide>{Slide()}</SwiperSlide>
-                    <SwiperSlide>{Slide()}</SwiperSlide>
+
+                    {
+                        data?.map((el, idx) => (
+                            <SwiperSlide key={idx} >{<Slide data={el} />}</SwiperSlide>
+                        ))
+                    }
                 </Swiper>
             </div >
         </section >
@@ -35,29 +42,26 @@ const Trending = () => {
 }
 export default Trending;
 
-const Slide = () => {
-
+const Slide = ({ data }) => {
     return (
         <div className='grid md:grid-cols-2 mx-8 pt-0 items-center' >
             <div className='image justify-center px-4 mx-auto'>
                 <Link href={'/'} >
                     <a>
-                        <Image src={'/images/img1.jpg'} width={400} height={400} className='rounded-xl' />
+                        <Image src={`${data.img}` || "/"} width={400} height={400} className='rounded-xl' />
                     </a>
                 </Link>
             </div>
             <div className='info flex justify-center flex-col' >
                 <div className="category">
-                    <Link href={'/'}><a className='text-orange-400 hover:text-orange-600 text-sm' >Travel Category</a></Link>
-                    <Link href={'/'}><a className='text-gray-400 hover:text-gray-600 text-xs ml-2' > -July 3 ,2022</a></Link>
+                    <Link href={'/'}><a className='text-orange-400 hover:text-orange-600 text-sm' >{data.category}</a></Link>
+                    <Link href={'/'}><a className='text-gray-400 hover:text-gray-600 text-xs ml-2' > - {data.published}</a></Link>
                 </div>
                 <div className="title">
-                    <Link href={'/'} ><a className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 hover:text-gray-600 leading-[2.7rem] lg:leading-[3.4rem]' >Your most unhappy Customer are the greatest source of earning </a></Link>
+                    <Link href={'/'} ><a className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 hover:text-gray-600 leading-[2.7rem] lg:leading-[3.4rem]' >{data.title} </a></Link>
                 </div>
                 <p className='text-sm md:text-md py-3 mx-1 xl:text-lg' >
-                    When it comes to customer feedback, bad news is good news. To encourage customers to come to you, tell them,
-                    “If you have bad news, tell me. If you have good news, tell the whole world.” Take the bad news and make use
-                    of it in your product development.
+                    {data.description}
                 </p>
                 <Author></Author>
             </div>
