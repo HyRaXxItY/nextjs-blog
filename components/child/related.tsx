@@ -12,7 +12,7 @@ const Related = () => {
     if (isLoading) return <LazyDisplay />
     if (isError) return <Error />
     return (
-        <section className='pt-20 mx-auto w-3/4'>
+        <section className='pt-20 mx-auto'>
             <h1 className='font-bold text-3xl py-10 text-gray-700 px-12'>Related</h1>
             <div className="flex flex-col gap-6">
                 {
@@ -38,7 +38,7 @@ const RelatePost = ({ data }) => {
             <div className="images flex flex-col justify-start">
                 <Link href={`/posts/${data.id}`} >
                     <a>
-                        <Image src={`${data.img}` || '/'} width={200} height={200} className='rounded-md' />
+                        <Image src={`${data.img}` || '/'} width={380} height={250} className='rounded-md' />
                     </a>
                 </Link>
             </div>
