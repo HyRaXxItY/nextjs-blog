@@ -13,8 +13,8 @@ const Category = () => {
     let business = data.filter(data => data.category === "Business")
 
     return (
-        <section className="container py-16 mx-auto md:px-20 ">
-            <div className="grid lg:grid-cols-2">
+        <section className="container py-16 mx-auto md:px-20">
+            <div className="grid lg:grid-cols-2 w-full">
                 <div className='item'>
                     <h1 className='font-semibold text-gray-500 text-xl flex-start py-12'>Travel</h1>
                     <div className='flex flex-col gap-5' >
@@ -43,10 +43,11 @@ const Category = () => {
 export default Category;
 
 const Posts = ({ data }) => {
+    const { author } = data
     return (
         <div className=" flex gap-5">
             <div className="images flex flex-col justify-start">
-                <Link href={'/'} >
+                <Link href={`/posts/${data.id}`} >
                     <a>
                         <Image src={`${data.img}` || '/'} width={350} height={220} className='rounded-md' />
                     </a>
@@ -54,13 +55,13 @@ const Posts = ({ data }) => {
             </div>
             <div className="info flex justify-center flex-col">
                 <div className="category">
-                    <Link href={'/'}><a className='text-orange-400 hover:text-orange-600 text-xs' >{data.category}</a></Link>
-                    <Link href={'/'}><a className='text-gray-400 hover:text-gray-600 text-xxs ml-2' > -{data.published}</a></Link>
+                    <a className='text-orange-400 hover:text-orange-600 text-xs' >{data.category}</a>
+                    <a className='text-gray-400 hover:text-gray-600 text-xxs ml-2' > -{data.published}</a>
                 </div>
                 <div className="title">
-                    <Link href={'/'} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >{data.title} </a></Link>
+                    <Link href={`/posts/${data.id}`} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >{data.title} </a></Link>
                 </div>
-                <Author></Author>
+                <Author {...author} ></Author>
             </div>
         </div>
     )

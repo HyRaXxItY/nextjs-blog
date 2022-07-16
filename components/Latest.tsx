@@ -24,10 +24,11 @@ const Latest = () => {
 export default Latest;
 
 const Posts = ({ data }) => {
+    const { author } = data
     return (
         <div className='item mx-6 pt-0 items-center text-center col-start justify-start justify-items-center' >
             <div className="images mx-auto text-center">
-                <Link href={'/'} >
+                <Link href={`/posts/${data.id}`} >
                     <a>
                         <Image src={`${data.img}` || "/"} width={380} height={260} className='rounded' />
                     </a>
@@ -35,16 +36,16 @@ const Posts = ({ data }) => {
             </div>
             <div className="info flex justify-center flex-col py-4">
                 <div className="category">
-                    <Link href={'/'}><a className='text-orange-400 hover:text-orange-600 text-xs' >{data.category}</a></Link>
-                    <Link href={'/'}><a className='text-gray-400 hover:text-gray-600 text-xxs ml-2' > -{data.published}</a></Link>
+                    <a className='text-orange-400 hover:text-orange-600 text-xs' >{data.category}</a>
+                    <a className='text-gray-400 hover:text-gray-600 text-xxs ml-2' > -{data.published}</a>
                 </div>
                 <div className="title py-2">
-                    <Link href={'/'} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >{data.title}</a></Link>
+                    <Link href={`/posts/${data.id}`} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >{data.title}</a></Link>
                 </div>
                 <p className='text-sm line-clamp-3 pb-2' >
                     {data.description.slice(0, 175).concat('...')}
                 </p>
-                <Author ></Author>
+                <Author {...author} ></Author>
             </div>
         </div>
     )

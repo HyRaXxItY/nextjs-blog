@@ -18,7 +18,7 @@ const Header = () => {
                     <div className='flex gap-4 md:gap-6 '>
                         <Link href={'/'}>
                             <a href='' >
-                                <div data-tooltip-target="tooltip-bottom" className="tooltip mb-2 md:mb-0 text-white bg-blue-100 font-medium rounded-lg text-sm  px-5 py-2.5 text-center hover:bg-transparent relative inline-block">
+                                <div data-tooltip-target="tooltip-bottom" className="tooltip mb-2 md:mb-0 text-white bg-blue-100 font-medium rounded-full text-sm  px-5 py-2.5 text-center hover:bg-transparent relative inline-block">
                                     <FaDiscord data-tooltip-target="tooltip-default" color='#555' className='h-6 w-6 hover:fill-[#5865F2]' />
 
                                     <span className='tooltiptext' >Discord</span>
@@ -29,7 +29,7 @@ const Header = () => {
 
                         <Link href={'/'}>
                             <a href=''>
-                                <div className="tooltip mb-2 md:mb-0 text-white bg-[#ffc3d6] rounded-lg text-sm px-5 py-2.5 text-center hover:bg-transparent">
+                                <div className="tooltip mb-2 md:mb-0 text-white bg-[#ffc3d6] rounded-full text-sm px-5 py-2.5 text-center hover:bg-transparent">
                                     <FaFacebook color='#555' className='h-6 w-6 hover:fill-[#ff407c]' />
                                     <span className="tooltiptext">facebook</span>
                                 </div>
@@ -37,7 +37,7 @@ const Header = () => {
                         </Link>
                         <Link href={'/'}>
                             <a href=''>
-                                <div className="tooltip mb-2 md:mb-0 text-white bg-[#c5ffe4] rounded-lg text-sm px-5 py-2.5 text-center hover:bg-transparent">
+                                <div className="tooltip mb-2 md:mb-0 text-white bg-[#c5ffe4] rounded-full text-sm px-5 py-2.5 text-center hover:bg-transparent">
                                     <FaGithub color='#555' className='h-6 w-6 hover:fill-[#31ff9f]' />
                                     <span className="tooltiptext">Github</span>
                                 </div>
@@ -45,7 +45,7 @@ const Header = () => {
                         </Link>
                         <Link href={'/'}>
                             <a href=''>
-                                <div className="tooltip mb-2 md:mb-0 text-white bg-[#dcc3ff] rounded-lg text-sm px-5 py-2.5 text-center hover:bg-transparent">
+                                <div className="tooltip mb-2 md:mb-0 text-white bg-[#dcc3ff] rounded-full text-sm px-5 py-2.5 text-center hover:bg-transparent">
                                     <GoBrowser color='#555' className='h-6 w-6 hover:fill-[#9933fe]' />
                                     <span className="tooltiptext">portfolio <br /> website</span>
                                 </div>

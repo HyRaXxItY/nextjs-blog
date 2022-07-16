@@ -43,10 +43,11 @@ const Trending = () => {
 export default Trending;
 
 const Slide = ({ data }) => {
+    const { author } = data
     return (
         <div className='grid md:grid-cols-2 mx-8 pt-0 items-center' >
             <div className='image justify-center px-4 mx-auto'>
-                <Link href={'/'} >
+                <Link href={`/posts/${data.id}`} >
                     <a>
                         <Image src={`${data.img}` || "/"} width={400} height={400} className='rounded-xl' />
                     </a>
@@ -54,16 +55,16 @@ const Slide = ({ data }) => {
             </div>
             <div className='info flex justify-center flex-col' >
                 <div className="category">
-                    <Link href={'/'}><a className='text-orange-400 hover:text-orange-600 text-sm' >{data.category}</a></Link>
-                    <Link href={'/'}><a className='text-gray-400 hover:text-gray-600 text-xs ml-2' > - {data.published}</a></Link>
+                    <a className='text-orange-400 hover:text-orange-600 text-sm' >{data.category}</a>
+                    <a className='text-gray-400 hover:text-gray-600 text-xs ml-2' > - {data.published}</a>
                 </div>
                 <div className="title">
-                    <Link href={'/'} ><a className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 hover:text-gray-600 leading-[2.7rem] lg:leading-[3.4rem]' >{data.title} </a></Link>
+                    <Link href={`/posts/${data.id}`} ><a className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 hover:text-gray-600 leading-[2.7rem] lg:leading-[3.4rem]' >{data.title} </a></Link>
                 </div>
                 <p className='text-sm md:text-md py-3 mx-1 xl:text-lg' >
                     {data.description}
                 </p>
-                <Author></Author>
+                <Author {...author} ></Author>
             </div>
         </div>
     )

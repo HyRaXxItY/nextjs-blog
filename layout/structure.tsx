@@ -13,7 +13,7 @@ const Structure = ({ children }: Props) => {
                 <title>Blog website</title>
             </Head>
             <Header />
-            <main>{children}</main>
+            <main className='mx-8' >{children}</main>
             <Footer />
         </>
     )

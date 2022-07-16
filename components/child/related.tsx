@@ -2,17 +2,26 @@ import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import Author from './author';
+import fetcher from '../../utils/fetcher';
+import LazyDisplay from './lazy-display';
+import Error from './error';
 
 
 const Related = () => {
+    const { data, isLoading, isError } = fetcher('api/posts/')
+    if (isLoading) return <LazyDisplay />
+    if (isError) return <Error />
     return (
         <section className='pt-20 mx-auto w-3/4'>
             <h1 className='font-bold text-3xl py-10 text-gray-700 px-12'>Related</h1>
             <div className="flex flex-col gap-6">
-                {relate()}
-                {relate()}
-                {relate()}
-                {relate()}
+                {
+                    data.map(
+                        (value, idx) => (
+                            <RelatePost data={value} key={idx} />
+                        )
+                    )
+                }
             </div>
         </section>
     )
@@ -22,25 +31,26 @@ const Related = () => {
 
 export default Related;
 
-const relate = () => {
+const RelatePost = ({ data }) => {
+    const author = data.author
     return (
         <div className=" flex gap-5">
             <div className="images flex flex-col justify-start">
-                <Link href={'/'} >
+                <Link href={`/posts/${data.id}`} >
                     <a>
-                        <Image src={'/images/img1.jpg'} width={200} height={200} className='rounded-md' />
+                        <Image src={`${data.img}` || '/'} width={200} height={200} className='rounded-md' />
                     </a>
                 </Link>
             </div>
             <div className="info flex justify-center flex-col">
                 <div className="category">
-                    <Link href={'/'}><a className='text-orange-400 hover:text-orange-600 text-xs' >Travel Category</a></Link>
-                    <Link href={'/'}><a className='text-gray-400 hover:text-gray-600 text-xxs ml-2' > -July 3 ,2022</a></Link>
+                    <a className='text-orange-400 hover:text-orange-600 text-xs' >{data.category}</a>
+                    <a className='text-gray-400 hover:text-gray-600 text-xxs ml-2' > - {data.published}</a>
                 </div>
                 <div className="title">
-                    <Link href={'/'} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >Your most unhappy Customer are the greatest source of earning </a></Link>
+                    <Link href={`/posts/${author.id}`} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >{data.title}</a></Link>
                 </div>
-                <Author></Author>
+                <Author {...author} ></Author>
             </div>
         </div>
     )
