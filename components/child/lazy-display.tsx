@@ -1,5 +1,3 @@
-import React from 'react'
-
 const LazyDisplay = () => {
     return (
         <div className="flex justify-center py-8">

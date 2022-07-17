@@ -21,7 +21,7 @@ const Category = () => {
                     <h1 className='font-semibold text-gray-500 text-xl flex-start py-12 pl-4'>Travel</h1>
                     <div className='flex flex-col gap-5' >
                         {
-                            travel.map((el, idx) => (
+                            travel.map((el: Data, idx: number) => (
                                 <Posts key={idx} {...el} />
                             ))
                         }
@@ -31,7 +31,7 @@ const Category = () => {
                     <h1 className='font-semibold text-gray-500 text-xl flex-start py-12 pl-4'>Business</h1>
                     <div className='flex flex-col gap-5' >
                         {
-                            business.map((el, idx) => (
+                            business.map((el: Data, idx: number) => (
                                 <Posts key={idx} {...el} />
                             ))
                         }

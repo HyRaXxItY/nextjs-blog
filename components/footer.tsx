@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { FaDiscord, FaGithub, FaFacebook } from 'react-icons/fa';
-import Newsletter from './child/newsletter';
+// import Newsletter from '../components/child/newsletter';
 
 function Footer() {
     return (
         <footer className="bg-gray-200 !w-screen">
-            <Newsletter />
+            {/* <Newsletter /> */}
             <div className="container mx-auto flex justify-center py-12 pb-4">
                 <div className="py-5">
                     <div className="flex gap-5 justify-center">

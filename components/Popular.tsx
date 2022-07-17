@@ -47,50 +47,6 @@ const Popular = () => {
 export default Popular;
 
 const Slide = (value: Data) => {
-    // return (
-    //     // <div className='grid' >
-    //     //     <div className="images mx-auto m-2 px-3">
-    //     //         <Link href={`/posts/${data.id}`} >
-    //     //             <a>
-    //     //                 <Image src={`${data?.img}` || '/'} width={350} height={220} className='rounded mx-auto max-h-full justify-center' />
-    //     //             </a>
-    //     //         </Link>
-    //     //     </div>
-    //     //     <div className="info flex justify-center flex-col py-4 m-2">
-    //     //         <div className="category">
-    //     //             <a className='text-orange-400 hover:text-orange-600 text-xs' >{data.category}</a>
-    //     //             <a className='text-gray-400 hover:text-gray-600 text-xxs ml-2' > -{data.published}</a>
-    //     //         </div>
-    //     //         <div className="title">
-    //     //             <Link href={`/posts/${data.id}`} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >{data.title}</a></Link>
-    //     //         </div>
-    //     //         <p className='text-xs' >
-    //     //             {data.description}
-    //     //         </p>
-    //     //         <Author></Author>
-    //     //     </div>
-    //     // </div>
-    //     <div className="grid">
-    //         <div className="images mx-auto m-2 p-3">
-    //             <Link href={`/posts/${data.id}`}><a><Image src={`${data.img}` || ""} width={350} height={250} /></a></Link>
-    //         </div>
-    //         <div className="info flex justify-center flex-col py-4 m-2">
-    //             <div className="category px-20">
-    //                 <Link href={`/posts/${data.id}`}><a className="text-orange-600 hover:text-orange-800 text-xs">{data.category || "No Category"}</a></Link>
-    //                 <Link href={`/posts/${data.id}`}><a className="text-gray-800 hover:text-gray-600 text-xxs "> - {data.published || ""}</a></Link>
-    //             </div>
-    //             <div className="title mx-auto w-3/4">
-    //                 <Link href={`/posts/${data.id}`}><a className="text-lg md:text-xl font-bold text-gray-800 hover:text-gray-600 leading-snug text-center">{data.title || "No Title"}</a></Link>
-    //             </div>
-
-    //             <p className="text-gray-500 py-3 w-3/4 mx-auto ">
-    //                 {data.description || "No Description"}
-    //             </p>
-    //             {data.author ? <Author className='px-20' /> : <></>}
-
-    //         </div>
-    //     </div>
-    // );
     const data: Data = { ...value }
     const { author } = data
     return (
