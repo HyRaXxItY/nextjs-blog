@@ -11,7 +11,7 @@ import Error from './child/error';
 import { Data } from '../typings';
 
 const Trending = () => {
-    const { data, isError, isLoading } = fetcher('api/trending')
+    const { data, isError, isLoading }: { data: Data[]; isError: boolean; isLoading: boolean } = fetcher('api/trending')
     if (isLoading) return <LazyDisplay />
     if (isError) return <Error />
     SwiperCore.use([Autoplay])
@@ -45,8 +45,7 @@ const Trending = () => {
 }
 export default Trending;
 
-const Slide = (value: Data[]) => {
-    const data: Data = { ...value }
+const Slide = (data: Data) => {
     const { author } = data
     return (
         <div className='grid md:grid-cols-2 mx-8 pt-0 items-center' >

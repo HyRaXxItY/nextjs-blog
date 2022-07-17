@@ -6,15 +6,16 @@ import LazyDisplay from './child/lazy-display';
 import Error from './child/error';
 import { Data } from '../typings';
 
+
 const Category = () => {
     const { data, isError, isLoading } = fetcher('api/category')
     if (isLoading) return <LazyDisplay />
     if (isError) return <Error />
-    let travel = data.filter((data: Data) => data.category === "Travel")
-    let business = data.filter((data: Data) => data.category === "Business")
+    const travel: Data[] = data.filter((data: Data) => data.category === "Travel")
+    const business: Data[] = data.filter((data: Data) => data.category === "Business")
 
     return (
-        <section className="container py-16 mx-auto md:px-20">
+        <section className="container py-8 my-0 mx-auto md:px-20">
             <div className="grid lg:grid-cols-2 w-full">
                 <div className='item'>
                     <h1 className='font-semibold text-gray-500 text-xl flex-start py-12 pl-4'>Travel</h1>
@@ -43,8 +44,7 @@ const Category = () => {
 
 export default Category;
 
-const Posts = (value: Data) => {
-    const data: Data = { ...value }
+const Posts = (data: Data) => {
     const { author } = data
     return (
         <div className=" flex gap-5">

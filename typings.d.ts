@@ -15,3 +15,10 @@ export interface Data {
     author: AuthorType
 }
 
+export interface FallbackType {
+    '/api/posts': Data
+}
+
+export interface ParamsType {
+    postId: string
+}

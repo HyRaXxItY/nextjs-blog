@@ -11,7 +11,7 @@ import Error from '../components/child/error'
 import { Data } from '../typings';
 
 const Popular = () => {
-    const { data, isError, isLoading } = fetcher('api/popular')
+    const { data, isError, isLoading }: { data: Data[]; isError: boolean; isLoading: boolean } = fetcher('api/popular')
     if (isLoading) return <LazyDisplay />
     if (isError) return <Error />
     return (
@@ -46,7 +46,7 @@ const Popular = () => {
 
 export default Popular;
 
-const Slide = (value: Data[]) => {
+const Slide = (value: Data) => {
     // return (
     //     // <div className='grid' >
     //     //     <div className="images mx-auto m-2 px-3">

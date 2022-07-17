@@ -5,10 +5,11 @@ import Author from './author';
 import fetcher from '../../utils/fetcher';
 import LazyDisplay from './lazy-display';
 import Error from './error';
+import { Data } from '../../typings';
 
 
 const Related = () => {
-    const { data, isLoading, isError } = fetcher('api/posts/')
+    const { data, isLoading, isError }: { data: Data[]; isLoading: boolean; isError: boolean } = fetcher('api/posts/')
     if (isLoading) return <LazyDisplay />
     if (isError) return <Error />
     return (
@@ -18,7 +19,7 @@ const Related = () => {
                 {
                     data.map(
                         (value, idx) => (
-                            <RelatePost data={value} key={idx} />
+                            <RelatePost {...value} key={idx} />
                         )
                     )
                 }
@@ -31,8 +32,8 @@ const Related = () => {
 
 export default Related;
 
-const RelatePost = ({ data }) => {
-    const author = data.author
+const RelatePost = (data: Data) => {
+    const { author } = data
     return (
         <div className=" flex gap-5">
             <div className="images flex flex-col justify-start">
@@ -48,9 +49,9 @@ const RelatePost = ({ data }) => {
                     <a className='text-gray-400 hover:text-gray-600 text-xxs ml-2' > - {data.published}</a>
                 </div>
                 <div className="title">
-                    <Link href={`/posts/${author.id}`} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >{data.title}</a></Link>
+                    <Link href={`/posts/${data.id}`} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >{data.title}</a></Link>
                 </div>
-                <Author {...author} ></Author>
+                <Author author={author} ></Author>
             </div>
         </div>
     )

@@ -10,7 +10,7 @@ const Home: NextPage = () => {
     <Structure>
       <Trending />
       <Latest />
-      <Popular />
+      {/* <Popular /> */}
       <Category />
     </Structure>
   )
