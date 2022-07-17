@@ -4,7 +4,7 @@ import Newsletter from './child/newsletter';
 
 function Footer() {
     return (
-        <footer className="bg-gray-200">
+        <footer className="bg-gray-200 !w-screen">
             <Newsletter />
             <div className="container mx-auto flex justify-center py-12 pb-4">
                 <div className="py-5">

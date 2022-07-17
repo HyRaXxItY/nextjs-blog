@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import fetcher from '../utils/fetcher';
 import LazyDisplay from './child/lazy-display';
 import Error from './child/error';
+import { Data } from '../typings';
 
 const Trending = () => {
     const { data, isError, isLoading } = fetcher('api/trending')
@@ -31,9 +32,11 @@ const Trending = () => {
                 >
 
                     {
-                        data?.map((el, idx) => (
-                            <SwiperSlide key={idx} >{<Slide data={el} />}</SwiperSlide>
-                        ))
+                        data?.map(
+                            (el, idx) => {
+                                return <SwiperSlide key={idx} > {< Slide {...el} />}</SwiperSlide>
+                            }
+                        )
                     }
                 </Swiper>
             </div >
@@ -42,7 +45,8 @@ const Trending = () => {
 }
 export default Trending;
 
-const Slide = ({ data }) => {
+const Slide = (value: Data[]) => {
+    const data: Data = { ...value }
     const { author } = data
     return (
         <div className='grid md:grid-cols-2 mx-8 pt-0 items-center' >
@@ -64,7 +68,7 @@ const Slide = ({ data }) => {
                 <p className='text-sm md:text-md py-3 mx-1 xl:text-lg' >
                     {data.description}
                 </p>
-                <Author {...author} ></Author>
+                <Author author={author} ></Author>
             </div>
         </div>
     )

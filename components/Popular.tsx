@@ -8,6 +8,7 @@ import Author from './child/author';
 import fetcher from '../utils/fetcher';
 import LazyDisplay from './child/lazy-display';
 import Error from '../components/child/error'
+import { Data } from '../typings';
 
 const Popular = () => {
     const { data, isError, isLoading } = fetcher('api/popular')
@@ -35,7 +36,7 @@ const Popular = () => {
             >
                 {
                     data?.map((el, idx) => (
-                        <SwiperSlide key={idx} >{<Slide data={el} />}</SwiperSlide>
+                        <SwiperSlide key={idx} >{<Slide {...el} />}</SwiperSlide>
                     ))
                 }
             </Swiper>
@@ -45,7 +46,7 @@ const Popular = () => {
 
 export default Popular;
 
-const Slide = ({ data }) => {
+const Slide = (value: Data[]) => {
     // return (
     //     // <div className='grid' >
     //     //     <div className="images mx-auto m-2 px-3">
@@ -90,6 +91,7 @@ const Slide = ({ data }) => {
     //         </div>
     //     </div>
     // );
+    const data: Data = { ...value }
     const { author } = data
     return (
         <div className='item mx-6 pt-0 items-center text-center col-start justify-start justify-items-center' >
@@ -109,9 +111,9 @@ const Slide = ({ data }) => {
                     <Link href={`/posts/${data.id}`} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >{data.title}</a></Link>
                 </div>
                 <p className='text-sm line-clamp-3 pb-2' >
-                    {data.description.slice(0, 175).concat('...')}
+                    {data.description}
                 </p>
-                <Author {...author} ></Author>
+                <Author author={author} ></Author>
             </div>
         </div>
     )

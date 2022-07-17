@@ -4,33 +4,34 @@ import Author from './child/author';
 import fetcher from '../utils/fetcher';
 import LazyDisplay from './child/lazy-display';
 import Error from './child/error';
+import { Data } from '../typings';
 
 const Category = () => {
     const { data, isError, isLoading } = fetcher('api/category')
     if (isLoading) return <LazyDisplay />
     if (isError) return <Error />
-    let travel = data.filter(data => data.category === "Travel")
-    let business = data.filter(data => data.category === "Business")
+    let travel = data.filter((data: Data) => data.category === "Travel")
+    let business = data.filter((data: Data) => data.category === "Business")
 
     return (
         <section className="container py-16 mx-auto md:px-20">
             <div className="grid lg:grid-cols-2 w-full">
                 <div className='item'>
-                    <h1 className='font-semibold text-gray-500 text-xl flex-start py-12'>Travel</h1>
+                    <h1 className='font-semibold text-gray-500 text-xl flex-start py-12 pl-4'>Travel</h1>
                     <div className='flex flex-col gap-5' >
                         {
                             travel.map((el, idx) => (
-                                <Posts key={idx} data={el} />
+                                <Posts key={idx} {...el} />
                             ))
                         }
                     </div>
                 </div>
                 <div className='item'>
-                    <h1 className='font-semibold text-gray-500 text-xl flex-start py-12'>Business</h1>
+                    <h1 className='font-semibold text-gray-500 text-xl flex-start py-12 pl-4'>Business</h1>
                     <div className='flex flex-col gap-5' >
                         {
                             business.map((el, idx) => (
-                                <Posts key={idx} data={el} />
+                                <Posts key={idx} {...el} />
                             ))
                         }
                     </div>
@@ -42,7 +43,8 @@ const Category = () => {
 
 export default Category;
 
-const Posts = ({ data }) => {
+const Posts = (value: Data) => {
+    const data: Data = { ...value }
     const { author } = data
     return (
         <div className=" flex gap-5">
@@ -61,7 +63,7 @@ const Posts = ({ data }) => {
                 <div className="title">
                     <Link href={`/posts/${data.id}`} ><a className='text-lg font-bold text-gray-800 hover:text-gray-600 leading-snug' >{data.title} </a></Link>
                 </div>
-                <Author {...author} ></Author>
+                <Author author={author} ></Author>
             </div>
         </div>
     )

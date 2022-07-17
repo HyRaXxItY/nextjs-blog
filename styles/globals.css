@@ -18,6 +18,30 @@
     /* * {
         box-sizing: border-box;        
     } */
+    .no-scrollbar::-webkit-scrollbar {
+        display:none;
+    }
+    .x-scrollbar{
+        overflow-x: hidden;
+    }
+    .class-1::-webkit-scrollbar {
+        width: 0.25rem;
+        border-radius:5px;
+    }
+    /* Track */
+    .class-2::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 10px;
+    }
+    /* Handle */
+    .class-3::-webkit-scrollbar-thumb {
+        background:#FB923C;
+        border-radius: 10px;
+    }
+    /* Handle on hover */
+    .class-4::-webkit-scrollbar-thumb:hover {
+        background: #666;
+    }
 }
 
 

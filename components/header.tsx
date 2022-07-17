@@ -2,9 +2,25 @@ import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from 'react-icons/fa';
 import Link from 'next/link';
 import { GoBrowser } from 'react-icons/go'
 import ProgressBar from './progress-bar';
+import { useState, useEffect } from 'react';
+
 const Header = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 200) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        }
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, [])
     return (
-        <header className='bg-gray-200 sticky top-0 w-full z-10'>
+        <header className={`${isScrolled && 'bg-[#ffffff]'} bg-gray-200 sticky top-0 !w-screen z-10`}>
             <div className='flex flex-col items-center sm:flex-row  sm:justify-between text-center py-3 xl:container xl:mx-auto '>
                 <div className='md:flex-none w-96 order-2 sm:order-1 flex justify-center pb-4 sm:py-0 pl-4' >
                     <input type='text' placeholder='Search...' className='text-input' />
